@@ -16,12 +16,30 @@ namespace MercadoProdutos.Controllers
         {
             _productMarketRepository = productMarketRepository;
         }
+
         [HttpPost]
         public IActionResult CreateProductMarket([FromBody] List<ProductMarket> ProductMarkets)
         {
             var response = _productMarketRepository.CreateProductMarket(ProductMarkets);
             if (!response) return BadRequest();
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("GetProductMarketByMarketId")]
+        public IActionResult GetProductMarketByMarketId(Guid MarketId)
+        {
+            var response = _productMarketRepository.GetProductMarketByMarketId(MarketId);
+            if (response == null) return BadRequest();
+            return Ok(response);
+        }
+        [HttpGet]
+        [Route("GetProductMarketByMarketCode")]
+        public IActionResult GetProductMarketByMarketCode(int MarketCode)
+        {
+            var response = _productMarketRepository.GetProductMarketByMarketCode(MarketCode);
+            if (response == null) return BadRequest();
+            return Ok(response);
         }
     }
 }

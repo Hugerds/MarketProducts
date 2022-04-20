@@ -4,8 +4,8 @@ namespace MercadoProdutos.Models
 {
     public class ProductMarket : MarketProductsBaseModel
     {
-        public int Quantidade { get; set; }
-        public decimal Valor { get; set; }
+        public int Quantity { get; set; }
+        public decimal Value { get; set; }
 
         [ForeignKey("Product")]
         public Guid ProductId { get; set; }

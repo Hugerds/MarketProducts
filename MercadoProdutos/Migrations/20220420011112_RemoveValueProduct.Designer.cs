@@ -3,6 +3,7 @@ using System;
 using MercadoProdutos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MercadoProdutos.Migrations
 {
     [DbContext(typeof(MercadoProdutosContext))]
-    partial class MercadoProdutosContextModelSnapshot : ModelSnapshot
+    [Migration("20220420011112_RemoveValueProduct")]
+    partial class RemoveValueProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -187,13 +189,13 @@ namespace MercadoProdutos.Migrations
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uuid");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int>("Quantidade")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<decimal>("Value")
+                    b.Property<decimal>("Valor")
                         .HasColumnType("numeric");
 
                     b.HasKey("Id");
@@ -408,9 +410,6 @@ namespace MercadoProdutos.Migrations
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("timestamp without time zone");
-
-                    b.Property<decimal?>("Value")
-                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 

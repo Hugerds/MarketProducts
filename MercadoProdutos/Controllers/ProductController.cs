@@ -18,7 +18,7 @@ namespace MercadoProdutos.Controllers
 
         [HttpPost]
         [Authorize(AuthenticationSchemes = "Bearer")]
-        public IActionResult CreateProduct([FromBody] CreateProductViewModel productViewModel)
+        public IActionResult CreateProduct([FromBody] ViewModels.CreateProductViewModel productViewModel)
         {
             var product = _productRepository.CreateProduct(productViewModel);
             return Ok(product);

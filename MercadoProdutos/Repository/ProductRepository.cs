@@ -25,10 +25,9 @@ namespace MercadoProdutos.Repository
         {
             var product = new Product() { 
                 Code = productViewModel.Code,
-                Descricao = productViewModel.Descricao,
+                Description = productViewModel.Description,
                 Name = productViewModel.Name,
                 QrCode = productViewModel.QrCode,
-                Valor = productViewModel.Valor,
                 Id = Guid.NewGuid(),
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now,
